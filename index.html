@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Promise To You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ffd6e8, #ffe6f2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        text-align: center;
+        width: 350px;
+        transition: 0.5s;
+    }
+
+    h2 {
+        color: #ff4d88;
+    }
+
+    p {
+        color: #555;
+    }
+
+    button {
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    .pink-btn {
+        background: #ff4d88;
+        color: white;
+    }
+
+    .pink-btn:hover {
+        background: #e6005c;
+        transform: scale(1.05);
+    }
+
+    .white-btn {
+        background: #f2f2f2;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    /* Animation */
+    .fade-in {
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Floating hearts */
+    .heart {
+        position: absolute;
+        color: #ff4d88;
+        animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+        0% {transform: translateY(100vh) scale(0);}
+        100% {transform: translateY(-10vh) scale(1);}
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card" id="step1">
+    <h2>💌 A Special Mail For You</h2>
+    <p>I have something from my heart...</p>
+    <button class="pink-btn" onclick="openQuestion()">Open My Promise</button>
+</div>
+
+<div class="card hidden" id="step2">
+    <h2>❤️ Do You Love Me?</h2>
+    <button class="pink-btn" onclick="showMessage()">Yes</button>
+    <button class="white-btn" onclick="moveButton(this)">No</button>
+</div>
+
+<div class="card hidden" id="finalMessage">
+    <h2>💖 My Promise To You</h2>
+    <p class="fade-in">
+        I'm really sorry for conveying this late... <br><br>
+        But today, on Promise Day, I promise to stand by you,
+        to support you in your dreams,
+        to understand you even in silence,
+        to love you in every mood,
+        and to choose you — again and again. ❤️<br><br>
+        No matter what happens,
+        you will always have my heart.
+        Ninu ardham chesukunta...
+
+        I Love You Kanna ❤️❤️❤️
+    </p>
+</div>
+
+<script>
+function openQuestion() {
+    document.getElementById("step1").classList.add("hidden");
+    document.getElementById("step2").classList.remove("hidden");
+}
+
+function showMessage() {
+    document.getElementById("step2").classList.add("hidden");
+    document.getElementById("finalMessage").classList.remove("hidden");
+    createHearts();
+}
+
+function moveButton(button) {
+    button.style.position = "absolute";
+    button.style.top = Math.random() * 80 + "%";
+    button.style.left = Math.random() * 80 + "%";
+}
+
+function createHearts() {
+    for(let i=0; i<20; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+        document.body.appendChild(heart);
+    }
+}
+</script>
+
+</body>
+</html>
